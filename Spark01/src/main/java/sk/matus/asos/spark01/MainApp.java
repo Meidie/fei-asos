@@ -244,9 +244,9 @@ public class MainApp {
         
         JavaRDD<Account> rdd = sc.parallelize(accs);
 
-        // ked je persist zakomentovane rdd sa vykona az pri collecte s 
-        // listom uctov kde je prvy zaznam zmeney, ked vsak odkomentujeme persit 
-        // prvy rdd sa vykona pri .count() a vysledok sa ulozi do pamate co znamena, 
+        // ked je persist zakomentovany rdd sa vykona az pri collecte s 
+        // listom uctov kde je prvy zaznam zmeneny, ked vsak odkomentujeme persist 
+        // prvy rdd sa vykona pri count a vysledok sa ulozi do pamate co znamena, 
         // ze collect uz nevytvara novy rdd a nepouzije teda zmeneny list uctov
         rdd.persist(StorageLevel.MEMORY_ONLY()).count();
         accs.get(0).setBalance(0.0);
