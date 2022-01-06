@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    
+    <bean id="aspectBean" class="sk.matus.asos.web.bean.AspectBean" />
+    <bean id="helloProxy" class="sk.matus.asos.web.bean.HelloProxyFactory" factory-method="getPort" />
+    
+    <aop:config>
+        <aop:aspect id="aspect" ref="aspectBean">
+            <aop:pointcut id="aroundPointCut" expression="execution(* sk.matus.asos.web.service.HelloService.hello(String)) and args(name)" />
+            <aop:around method="myAroundAdvice" pointcut-ref="aroundPointCut" />
+        </aop:aspect>
+    </aop:config>
+</beans>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:tns="http://cafeteriawa.asos.matus.sk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://cafeteriawa.asos.matus.sk/">
+
+<xs:element name="NoSuchFieldException" type="tns:NoSuchFieldException"/>
+
+<xs:element name="info" type="tns:info"/>
+
+<xs:element name="infoResponse" type="tns:infoResponse"/>
+
+<xs:element name="objednaj" type="tns:objednaj"/>
+
+<xs:element name="objednajResponse" type="tns:objednajResponse"/>
+
+<xs:element name="odstranJedlo" type="tns:odstranJedlo"/>
+
+<xs:element name="pocetObjednavok" type="tns:pocetObjednavok"/>
+
+<xs:element name="pocetObjednavokResponse" type="tns:pocetObjednavokResponse"/>
+
+<xs:element name="ponuka" type="tns:ponuka"/>
+
+<xs:element name="ponukaResponse" type="tns:ponukaResponse"/>
+
+<xs:element name="pridajJedlo" type="tns:pridajJedlo"/>
+
+<xs:element name="pridajJedloResponse" type="tns:pridajJedloResponse"/>
+
+<xs:element name="vytvorJedlo" type="tns:vytvorJedlo"/>
+
+<xs:element name="vytvorJedloResponse" type="tns:vytvorJedloResponse"/>
+
+<xs:element name="zmenCenu" type="tns:zmenCenu"/>
+
+<xs:element name="zmenCenuResponse" type="tns:zmenCenuResponse"/>
+
+<xs:element name="zmenPopis" type="tns:zmenPopis"/>
+
+<xs:element name="zmenPopisResponse" type="tns:zmenPopisResponse"/>
+
+<xs:complexType name="info">
+<xs:sequence>
+<xs:element name="meno" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:food" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="food">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objednaj">
+<xs:sequence>
+<xs:element name="nazov" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objednajResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="NoSuchFieldException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vytvorJedlo">
+<xs:sequence>
+<xs:element name="meno" type="xs:string" minOccurs="0"/>
+<xs:element name="popis" type="xs:string" minOccurs="0"/>
+<xs:element name="cena" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vytvorJedloResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="pridajJedlo">
+<xs:sequence>
+<xs:element name="jedlo" type="tns:food" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pridajJedloResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="pocetObjednavok">
+<xs:sequence>
+<xs:element name="nazov" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pocetObjednavokResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="odstranJedlo">
+<xs:sequence>
+<xs:element name="nazov" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ponuka">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ponukaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="zmenCenu">
+<xs:sequence>
+<xs:element name="nazov" type="xs:string" minOccurs="0"/>
+<xs:element name="cena" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="zmenCenuResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="zmenPopis">
+<xs:sequence>
+<xs:element name="nazov" type="xs:string" minOccurs="0"/>
+<xs:element name="popis" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="zmenPopisResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

@@ -29,7 +29,7 @@ nbbuild/
 dist/
 nbdist/
 nbactions.xml
-#nb-configuration.xml
+nb-configuration.xml
 
 # Maven
 target/

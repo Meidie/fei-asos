@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" >
+
+    <bean id="aspectLoggerBean" class="sk.matus.asos.cvicenie02uloha03.bean.AspectLoggerBean"/>
+    <bean id="service" class="sk.matus.asos.cvicenie02uloha03.bean.service.MessageServiceImpl"/>
+    <bean id="consumer" class="sk.matus.asos.cvicenie02uloha03.bean.consumer.MessageConsumerImpl"/>
+    <bean id="processor" class="sk.matus.asos.cvicenie02uloha03.bean.MessageProcessor">
+        <constructor-arg ref="service" />
+        <constructor-arg ref="consumer" />
+    </bean>
+    
+    <aop:config>
+        <aop:aspect id="aspect" ref="aspectLoggerBean">
+            <!--@Before-->
+            <aop:pointcut id="pointCutBefore" expression="execution(* sk.matus.asos.cvicenie02uloha03.bean.service.MessageServiceImpl.getMessage(..))" />
+            <aop:before method="myBeforeAdvice" pointcut-ref="pointCutBefore" />
+            
+            <!--@After-->
+            <aop:pointcut id="pointCutAfterReturning" expression="execution(* sk.matus.asos.cvicenie02uloha03.bean.service.MessageServiceImpl.getMessage(..))" />
+            <aop:after-returning method="myAfterReturningAdvice" pointcut-ref="pointCutAfterReturning" returning="message" />
+        </aop:aspect>
+    </aop:config>
+    
+</beans>

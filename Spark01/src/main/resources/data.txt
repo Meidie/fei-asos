@@ -1,0 +1,4 @@
+Prvy riadok
+Druhy riadok
+Riadok treti
+Koniec

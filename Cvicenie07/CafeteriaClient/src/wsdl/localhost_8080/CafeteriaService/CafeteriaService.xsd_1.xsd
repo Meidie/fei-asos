@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:tns="http://cafeteriaws.asos.matus.sk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://cafeteriaws.asos.matus.sk/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="addFood" type="tns:addFood"/>
+
+<xs:element name="addFoodResponse" type="tns:addFoodResponse"/>
+
+<xs:element name="getMenu" type="tns:getMenu"/>
+
+<xs:element name="getMenuResponse" type="tns:getMenuResponse"/>
+
+<xs:complexType name="addFood">
+<xs:sequence>
+<xs:element name="arg0" type="tns:food" minOccurs="0"/>
+<xs:element name="arg1" type="tns:day" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="food">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addFoodResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMenu">
+<xs:sequence>
+<xs:element name="arg0" type="tns:day" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMenuResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:menu" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="menu">
+<xs:sequence>
+<xs:element name="day" type="tns:day" minOccurs="0"/>
+<xs:element name="foodOffers" type="tns:food" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="day">
+<xs:restriction base="xs:string">
+<xs:enumeration value="MONDAY"/>
+<xs:enumeration value="TUESDAY"/>
+<xs:enumeration value="WEDNESDAY"/>
+<xs:enumeration value="THURSDAY"/>
+<xs:enumeration value="FRIDAY"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
